@@ -15,7 +15,7 @@ func Hash(data []byte, i, m uint) uint {
 	}
 	h1 := fnv64a(data)
 	h2 := fnv64(data)
-	return uint((h1 + h2) % uint64(m))
+	return uint((h1 + uint64(i)*h2) % uint64(m))
 }
 
 func fnv64a(data []byte) uint64 {
